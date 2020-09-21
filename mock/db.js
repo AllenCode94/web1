@@ -12,6 +12,8 @@ let mapData = (n) => {
       title:'@ctitle(8,12)',
       des:'@ctitle(10,20)',
       time:'@integer(1594004307038,1598004307038)',
+	  img_s: Mock.Random.image('75x75',Mock.Random.color(),Mock.Random.cword(4,8)),
+	  img_l: Mock.Random.image('350x350',Mock.Random.color(),Mock.Random.cword(4,8)),
       detail:{
         auth_icon:Mock.Random.image('50x50',Mock.Random.color(),Mock.Random.cword(1)),
         auth:'@cname()',
@@ -47,7 +49,27 @@ let mapData2 = (n) => {
 
   return data;
 };
+let classify = (n) => {
+  let data=[];
 
+  for (let i=1; i<=n; i++){
+    data.push({
+      _id: i+'',
+      id: i+'',
+      title:'@ctitle(4,8)',
+      sub_title:'@ctitle(6,12)',
+      img: Mock.Random.image('150x150',Mock.Random.color(),Mock.Random.cword(4,8)),
+      // time:'@integer(1594004307038,1598004307038)',
+      // detail:{
+      //   auth_icon:Mock.Random.image('50x50',Mock.Random.color(),Mock.Random.cword(1)),
+      //   auth:'@cname()',
+      //   content:'@cparagraph(3)'
+      // }
+    })
+  }
+
+  return data;
+};
 
 module.exports = Mock.mock({
   
@@ -63,6 +85,7 @@ module.exports = Mock.mock({
   'follow': mapData(10),
   'column': mapData(60),
   'detail': mapData(60),
+  'classify':classify(20),
 });
 
 /* module.exports = () => {

@@ -1,13 +1,13 @@
 <template>
-	<div style="height: 100%;overflow: auto;">
+	<div class="box1" style="height: 100%;">
 		<!-- <Back></Back> -->
 		<div v-if="msg">
 			<div class="tips" v-html="msg"></div>
 			<Button @click="gologin" :text="'前往登录'" />
 		</div>
-		<div class="follow pd-top" v-else>
+		<div class="pd" v-else>
 			<Loading v-if="list.length===0"></Loading>
-			<div v-else>
+			<div v-else  class="follow">
 				<h2 style="font-size: 0.4rem;color: orangered;">我的收藏</h2>
 				<List :newslist="list" :collectionName="'follow'" :isfollow="isfollow" />
 			</div>
@@ -38,16 +38,16 @@
 		mounted() {
 			if (localStorage.getItem('user')) {
 				let user = JSON.parse(localStorage.getItem('user'));
-				console.log(user.token);
+				// console.log(user.token);
 				this.$axios({
 					url: '/api/follow',
 					headers: {
 						token: user.token
 					}
 				}).then(res => {
-					console.log(res);
+					// console.log(res);
 					this.list = res.data.data;
-					console.log(this.list);
+					// console.log(this.list);
 					// this.$root.Bloading=false;
 				})
 			} else {
@@ -63,14 +63,24 @@
 	}
 </script>
 
-<style>
+<style scoped>
+	.box1{
+		width: 100%;
+		position: relative;
+	}
 	.tips {
 		padding: 0.5rem 0rem;
 		color: #333;
 		font-size: 0.32rem;
 	}
+	.pd{
+		width: 100%;
+		position: absolute;
+		overflow: auto;
+		height: 100%;
+	}
 
 	.follow {
-		padding: 0.39rem 0.2rem 0.8rem;
+		padding: 0.39rem 0.2rem 2rem;
 	}
 </style>

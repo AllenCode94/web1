@@ -6,7 +6,7 @@
 				<span>主页</span>
 			</a>
 		</router-link>
-		<router-link tag="li" active-class="active" to="/column">
+		<router-link tag="li" active-class="active" to="/classify">
 			<a href="javascript:">
 				<i class="iconfont">&#xe604;</i>
 				<span>分类</span>

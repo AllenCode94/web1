@@ -30,7 +30,7 @@
 			$route: {
 				handler(newVal) {
 					let path = newVal.path;
-					if (/home|user/.test(path)) {
+					if (/home|user|classify/.test(path)) {
 						// this.$root.Bloading = true;
 						this.$root.Bfoot = true;
 						this.$root.Bback = false;

@@ -28,25 +28,36 @@
       }
     },
     components:{
-			Banner,Search,List,Loading
-		},
+		Banner,Search,List,Loading
+	},
     mounted(){
-		this.$axios({
-			url:'/api/banner',
-			params:{_limit:4,_page:2}
-		}).then(res=>{
-			this.banner=res.data.data;
-		});
-		this.$axios({
-			url:'/api/home',
-			params:{_limit:20,_page:2}
-		}).then(res=>{
-			this.newslist=res.data.data;
-		})
+		// this.$axios({
+		// 	url:'/api/banner',
+		// 	params:{_limit:4,_page:2}
+		// }).then(res=>{
+		// 	this.banner=res.data.data;
+		// });
+		// this.$axios({
+		// 	url:'/api/home',
+		// 	params:{_limit:20,_page:2}
+		// }).then(res=>{
+		// 	this.newslist=res.data.data;
+		// })
+		this.$axios.all([
+			this.$axios({
+				url:'/api/banner',
+				params:{_limit:4,_page:2}
+			}),
+			this.$axios({
+				url:'/api/home',
+				params:{_limit:20,_page:2}
+			})
+		]).then(this.$axios.spread((banner,newslist)=>{
+			this.banner=banner.data.data;
+			this.newslist=newslist.data.data;
+		}))
 	},
-    updated(){
-		
-	},
+    updated(){},
     methods:{}
   }
 </script>

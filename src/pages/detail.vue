@@ -14,7 +14,8 @@
 				<div class="time">
 					<p>{{item.time|date}}<span><img src="../assets/img/zan.png" alt="" /></span></p>
 				</div>
-				<div class="text-box" v-html="item.detail.content"></div>
+				<div class="text-box" v-html="item.detail.content">
+				</div>
 			</div>
 		</div>
 

@@ -92,7 +92,7 @@
 		padding: 0rem 0.06rem;
 		border-radius: 0.15rem;
 		background-color: orangered;
-		font-size: 0.04rem;
+		font-size: 0.1rem;
 		top:-15%;
 		right: 0;
 		transform: translateX(50%);

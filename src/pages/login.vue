@@ -30,7 +30,8 @@
     components:{
 		Back,Inp,Btn
 	},
-    mounted(){},
+    mounted(){
+	},
     updated(){},
     methods:{
 		golog:function(){
@@ -45,6 +46,7 @@
 				if(res.data.err===0){
 					localStorage.setItem('user',JSON.stringify(res.data));
 					if(true){
+						
 						this.$router.push({
 							path:'/user',
 							query:{

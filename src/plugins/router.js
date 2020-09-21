@@ -9,7 +9,7 @@ import Detail from '../pages/detail.vue'
 import User from '../pages/user.vue'
 import Loading from '../components/app-loading/app-loading.vue'
 import Follow from '../pages/follow.vue'
-import Column from '../pages/column.vue'
+import Classify from '../pages/classify.vue'
 let routes = [
 	{path:'/loading',component:Loading},
 	{path:'/home',component:Home},
@@ -18,7 +18,7 @@ let routes = [
 	{path:'/reg',component:Reg},
 	{path:'/user',component:User},
 	{path:'/follow',component:Follow},
-	{path:'/column',component:Column},
+	{path:'/classify',component:Classify},
 	{path:'/',redirect:'/home'},
 ];
 const originalPush = VueRouter.prototype.push
